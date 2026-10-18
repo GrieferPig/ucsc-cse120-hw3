@@ -5,8 +5,8 @@ if __name__ == "__main__":
     reset = pyrtl.Input(1, "reset")
     y = pyrtl.Register(2, "y")
 
-    # TODO: define y.next logic below
-    # y.next <<=
+    # TODO: define y.next logic below using the specification in Q4.b)
+    # For example: y.next <<= y ^ 1 ...
 
     trace = pyrtl.SimulationTrace()
     sim = pyrtl.Simulation(tracer=trace)

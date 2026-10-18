@@ -1,8 +1,8 @@
 import pyrtl
 
 def datapath(zero, lt, opcode):
-    #TODO: implement datapath given the specification in Q4.a)
-    # branch = 
+    #TODO: implement logic to assign branch below using the specification in Q4.a)
+    # For example: branch = zero & lt ~opcode  
     return branch
 
 if __name__ == "__main__":
