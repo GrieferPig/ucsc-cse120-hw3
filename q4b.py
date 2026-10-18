@@ -12,6 +12,6 @@ if __name__ == "__main__":
     sim = pyrtl.Simulation(tracer=trace)
     sim.step({"reset" : 1, "enable": 0})
     
-    # TODO: write more test cases here
+    # TODO: write more sim.step() cases here and check if the waveform matches expected y.next value
     
     trace.render_trace()

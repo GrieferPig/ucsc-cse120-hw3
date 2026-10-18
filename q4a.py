@@ -1,8 +1,8 @@
 import pyrtl
 
 def datapath(zero, lt, opcode):
-    #TODO: implement logic to assign branch below using the specification in Q4.a)
-    # For example: branch = zero & lt ~opcode  
+    # TODO: implement logic to assign branch below using the specification in Q4.a)
+    # For example: branch = zero & lt ~opcode
     return branch
 
 if __name__ == "__main__":
@@ -16,4 +16,13 @@ if __name__ == "__main__":
     branch <<= branch_out
 
     sim = pyrtl.Simulation()
+
+    # Example test case below, this should PASS
+    try:
+        sim.step({"zero" : 0, "lt" : 1, "opcode": 0})
+        assert sim.inspect("branch") == 1
+        print("Test PASS")
+    except:
+        print("Test FAIL")
+    
     # TODO: write test cases here
