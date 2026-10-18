@@ -1,19 +1,17 @@
 import pyrtl
 
-def datapath(zero, lt, opcode):
-    #TODO: implement datapath given the specification in Q4.a)
-    # branch = 
-    return branch
-
 if __name__ == "__main__":
-    zero = pyrtl.Input(1, "zero")
-    lt = pyrtl.Input(1, "lt")
-    opcode = pyrtl.Input(2, "opcode")
+    enable = pyrtl.Input(1, "enable")
+    reset = pyrtl.Input(1, "reset")
+    y = pyrtl.Register(2, "y")
 
-    branch_out = datapath(zero, lt, opcode)
+    # TODO: define y.next logic below
+    # y.next <<=
 
-    branch = pyrtl.Output(1, "branch")
-    branch <<= branch_out
-
-    sim = pyrtl.Simulation()
-    # TODO: write test cases here
+    trace = pyrtl.SimulationTrace()
+    sim = pyrtl.Simulation(tracer=trace)
+    sim.step({"reset" : 1, "enable": 0})
+    
+    # TODO: write more test cases here
+    
+    trace.render_trace()
