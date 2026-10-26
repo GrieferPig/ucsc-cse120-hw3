@@ -3,6 +3,7 @@ import pyrtl
 def datapath(zero, lt, opcode):
     # TODO: implement logic to assign branch below using the specification in Q4.a)
     # For example: branch = zero & lt ~opcode
+    branch = pyrtl.mux(opcode, lt, ~lt, zero, ~zero)
     return branch
 
 if __name__ == "__main__":
@@ -26,3 +27,10 @@ if __name__ == "__main__":
         print("Test FAIL")
     
     # TODO: write test cases here
+    for op in range(4):
+        for z in range(2):
+            for l in range(2):
+                expected = (l, 1 - l, z, 1 - z)[op]
+                sim.step({"zero": z, "lt": l, "opcode": op})
+                assert sim.inspect("branch") == expected, (op, z, l)
+    print("Test PASS")
